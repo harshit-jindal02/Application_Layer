@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 
 @Service
@@ -23,6 +25,16 @@ public class AppService {
                 .retrieve()
                 .bodyToMono(Department.class).block();
     }
+
+    public Mono<Department> getDepartment(String departmentId) {
+        return localApiClient
+                .get()
+                .uri("/departments/" + departmentId)
+                .retrieve()
+                .bodyToMono(Department.class);
+
+    }
+
 }
 
 //    private final Traverson traverson;

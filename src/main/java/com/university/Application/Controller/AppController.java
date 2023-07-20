@@ -23,4 +23,9 @@ public class AppController {
         return service.addDepartment(department);
     }
 
+    @GetMapping(path="/departments/{departmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    private Mono<Department> getDepartments(@PathVariable String departmentId) {
+        return service.getDepartment(departmentId);
+    }
+
 }
