@@ -18,16 +18,9 @@ public class AppController {
     @Autowired
     AppService service;
 
-    /*
     @PostMapping(path="/departments", consumes = MediaType.APPLICATION_JSON_VALUE)
     private Department addDepartments(@RequestBody Department department) {
         return service.addDepartment(department);
-    }
-     */
-
-    @GetMapping(path = "/departments", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Department> getDepartments() {
-        return service.getALlDepartment();
     }
 
 }

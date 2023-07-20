@@ -14,5 +14,9 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
+	@Bean
+	public WebClient localApiClient() {
+		return WebClient.create("http://localhost:8080/api/v3");
+	}
 
 }
